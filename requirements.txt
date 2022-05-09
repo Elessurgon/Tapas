@@ -1,8 +1,8 @@
--f https://download.pytorch.org/whl/cpu/torch_stable.html
--f https://data.pyg.org/whl/torch-1.10.0+cpu.html
-torch==1.10.1+cpu
-torch-scatter
-transformers
-pandas
-numpy
-tensorflow
+-f https://download.pytorch.org/whl/torch_stable.html
+-f https://pytorch-geometric.com/whl/torch-1.8.0+cpu.html
+numpy==1.19.5
+pandas==1.1.5
+torch==1.8.0+cpu
+streamlit==0.79.0
+transformers==4.5.0
+torch-scatter==2.0.6
