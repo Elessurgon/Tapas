@@ -15,7 +15,7 @@ from transformers import TapasTokenizer, TapasForQuestionAnswering
 
 tf.get_logger().setLevel('ERROR')
 
-model_name = 'google/tapas-base-finetuned-wtq'
+model_name = 'google/tapas-large-finetuned-wtq'
 #model_name =  "table-question-answering"
 #model = pipeline(model_name)
 
