@@ -11,17 +11,18 @@ import streamlit as st
 from itertools import islice
 import random
 #from transformers import pipeline
-from transformers import TapasTokenizer, TapasForQuestionAnswering
+# from transformers import TapasTokenizer, TapasForQuestionAnswering
+from transformers import TapexTokenizer, BartForConditionalGeneration
 
 tf.get_logger().setLevel('ERROR')
 
-model_name = 'google/tapas-large-finetuned-wtq'
+model_name = 'microsoft/tapex-large-finetuned-wikisql'
 #model_name =  "table-question-answering"
 #model = pipeline(model_name)
 
-model = TapasForQuestionAnswering.from_pretrained(
+model = BartForConditionalGeneration.from_pretrained(
     model_name, local_files_only=False)
-tokenizer = TapasTokenizer.from_pretrained(model_name)
+tokenizer = TapexTokenizer.from_pretrained(model_name)
 
 st.set_option('deprecation.showfileUploaderEncoding', False)
 
