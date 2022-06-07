@@ -7,6 +7,7 @@ import pandas as pd
 import numpy as np
 import IPython
 import streamlit as st
+# from st_aggrid import AgGrid
 #import subprocess
 from itertools import islice
 import random
@@ -22,7 +23,8 @@ model_name = 'google/tapas-large-finetuned-wtq'
 #model_name =  "table-question-answering"
 #model = pipeline(model_name)
 
-model = TapasForQuestionAnswering.from_pretrained(model_name, local_files_only=False)
+model = TapasForQuestionAnswering.from_pretrained(
+    model_name, local_files_only=False)
 tokenizer = TapasTokenizer.from_pretrained(model_name)
 
 # model = BartForConditionalGeneration.from_pretrained(
@@ -91,7 +93,8 @@ if st.button('Predict Answers'):
                     cell_values.append(table.iat[coordinate])
                 answers.append(", ".join(cell_values))
 
-    st.success(
+try:
+    st.show(
         'Done! Please check below the answers and its cells highlighted in table above')
 
     placeholder.dataframe(data.style.apply(
@@ -114,3 +117,5 @@ if st.button('Predict Answers'):
             else:
                 st.markdown(
                     '**>** '+str(np.round(np.mean(list(map(float, answer.split(',')))), 2)))
+except:
+    st.warning('None')
